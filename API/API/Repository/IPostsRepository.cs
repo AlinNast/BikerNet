@@ -7,5 +7,6 @@ namespace API.Repository
         Task<List<Post>> GetAll();
 
         void AddPost(Post post);
+        void EditPost(Post editedPost);
     }
 }

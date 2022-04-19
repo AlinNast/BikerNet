@@ -23,5 +23,16 @@ namespace API.Repository
             _dataContext.Posts.Add(post);
             _dataContext.SaveChanges();
         }
+
+        public void EditPost(Post editedPost)
+        {
+            var post = _dataContext.Posts.Find(editedPost.Id);
+
+            post.Title = editedPost.Title;
+            post.Description = editedPost.Description;
+            post.Picture = editedPost.Picture;
+
+            _dataContext.SaveChanges();
+        }
     }
 }

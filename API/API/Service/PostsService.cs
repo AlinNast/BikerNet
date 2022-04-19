@@ -31,5 +31,11 @@ namespace API.Service
             _postsRepo.AddPost(post);
             return await GetPostById(post.Id);
         }
+
+        public async Task<Post> EditPost(Post editedPost)
+        {
+            _postsRepo.EditPost(editedPost);
+            return await GetPostById(editedPost.Id);
+        }
     }
 }

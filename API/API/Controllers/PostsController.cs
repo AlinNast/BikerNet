@@ -45,23 +45,18 @@ namespace API.Controllers
             return Ok(addedPost);
         }
 
-        //[HttpPut]
-        //public async Task<ActionResult<Post>> Put(Post request)
-        //{
-        //    var post = await _dataContext.Posts.FindAsync(request.Id);
+        [HttpPut]
+        public async Task<ActionResult<Post>> Put(Post editedPost)
+        {
+            var post = await _postsService.EditPost(editedPost);
 
-        //    if (post == null)
-        //    {
-        //        return NotFound("post not found");
-        //    }
+            if (post == null)
+            {
+                return NotFound("post not found");
+            }
 
-        //    post.Id = request.Id;
-        //    post.Title = request.Title;
-        //    post.Description = request.Description;
-
-        //    await  _dataContext.SaveChangesAsync();
-        //    return Ok(post);
-        //}
+            return Ok(post);
+        }
 
         //[HttpDelete("{id}")]
         //public async Task<ActionResult<List<Post>>> DeletePost(Guid id)

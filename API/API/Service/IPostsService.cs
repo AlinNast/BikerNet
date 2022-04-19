@@ -9,5 +9,6 @@ namespace API.Service
         Task<Post> GetPostById(Guid id);
 
         Task<Post> AddPost(Post post);
+        Task<Post> EditPost(Post editedPost);
     }
 }
