@@ -1,5 +1,7 @@
 global using API.Data;
 global using Microsoft.EntityFrameworkCore;
+using API.Repository;
+using API.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +20,8 @@ builder.Services.AddCors(options =>
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<IPostsService, PostsService>();
+builder.Services.AddScoped<IPostsRepository, PostsRepo>();
 builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));

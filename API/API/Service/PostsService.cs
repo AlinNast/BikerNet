@@ -1,21 +1,27 @@
 ﻿using API.Models;
 using API.Repository;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API.Service
 {
-    public class PostsService
+    public class PostsService : IPostsService
     {
-        private PostsRepo _postsRepo;
+        private readonly IPostsRepository _postsRepo;
 
-        public PostsService()
+        public PostsService(IPostsRepository postsRepo)
         {
-            _postsRepo = new PostsRepo(DataContext dataContext);
+            _postsRepo = postsRepo;
         }
-        public List<Post> GetAllPosts()
+        public async Task<List<Post>> GetAllPosts()
         {
-            var posts = new List<Post>();
-            var posts = API.PostsRepo.GetAllPosts();
+            var posts = await _postsRepo.GetAll();
             return posts;
+        }
+
+        public async Task<Post> GetPostById(int id)
+        {
+            var posts = await _postsRepo.GetAll();
+            return new Post();
         }
     }
 }

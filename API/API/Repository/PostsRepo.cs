@@ -1,8 +1,9 @@
 ﻿using API.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API.Repository
 {
-    public class PostsRepo
+    public class PostsRepo : IPostsRepository
     {
         private readonly DataContext _dataContext;
 
@@ -11,9 +12,10 @@ namespace API.Repository
             _dataContext = dataContext;
         }
 
-        public List<Post> GetAllPosts()
+        public async Task<List<Post>> GetAll()
         {
-            return _dataContext.Posts.ToList();
+            var posts = await _dataContext.Posts.ToListAsync();
+            return posts;
         }
     }
 }

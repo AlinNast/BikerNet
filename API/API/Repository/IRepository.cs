@@ -1,7 +1,9 @@
-﻿namespace API.Repository
+﻿using API.Models;
+
+namespace API.Repository
 {
-    public class IRepository
+    public interface IPostsRepository
     {
-       // public virtual GetAllPosts();
+        public Task<List<Post>> GetAll();
     }
 }
