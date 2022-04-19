@@ -10,5 +10,6 @@ namespace API.Service
 
         Task<Post> AddPost(Post post);
         Task<Post> EditPost(Post editedPost);
+        Task DeletePost(Guid id);
     }
 }

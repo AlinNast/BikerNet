@@ -8,5 +8,6 @@ namespace API.Repository
 
         void AddPost(Post post);
         void EditPost(Post editedPost);
+        void DeletePost(Guid id);
     }
 }

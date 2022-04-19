@@ -34,5 +34,13 @@ namespace API.Repository
 
             _dataContext.SaveChanges();
         }
+
+        public void DeletePost(Guid id)
+        {
+            var post = _dataContext.Posts.Find(id);
+            _dataContext.Posts.Remove(post);
+            _dataContext.SaveChanges();
+
+        }
     }
 }

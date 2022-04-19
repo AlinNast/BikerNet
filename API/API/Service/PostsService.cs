@@ -37,5 +37,11 @@ namespace API.Service
             _postsRepo.EditPost(editedPost);
             return await GetPostById(editedPost.Id);
         }
+
+        public async Task DeletePost(Guid id)
+        {
+            _postsRepo.DeletePost(id);
+        }
+
     }
 }

@@ -58,17 +58,12 @@ namespace API.Controllers
             return Ok(post);
         }
 
-        //[HttpDelete("{id}")]
-        //public async Task<ActionResult<List<Post>>> DeletePost(Guid id)
-        //{
-        //    var post = await _dataContext.Posts.FindAsync(id);
-        //    if (post == null)
-        //    {
-        //        return NotFound("post not found");
-        //    }
-        //    _dataContext.Posts.Remove(post);
-        //    await _dataContext.SaveChangesAsync();
-        //    return Ok(await _dataContext.Posts.ToListAsync());
-        //}
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeletePost(Guid id)
+        {
+
+            await _postsService.DeletePost(id);
+            return Ok();
+        }
     }
 }
