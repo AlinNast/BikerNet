@@ -18,10 +18,12 @@ namespace API.Service
             return posts;
         }
 
-        public async Task<Post> GetPostById(int id)
+        public async Task<Post> GetPostById(Guid id)
         {
             var posts = await _postsRepo.GetAll();
-            return new Post();
+            var post = posts.Find(x => x.Id == id);
+            if (post == null) { return null; }
+            return post;
         }
     }
 }

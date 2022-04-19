@@ -24,15 +24,15 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Post>> Get(Guid id)
+        public async Task<ActionResult<Post>> GetPostById(Guid id)
         {
-            var post = await _dataContext.Posts.SingleOrDefaultAsync(x => x.Id == id);
-        //    if (post == null)
-        //    {
-        //        return NotFound("post not found");
-        //    }
-        //    return Ok(post);
-        //}
+            var post = await _postsService.GetPostById(id);
+            if (post == null)
+            {
+                return NotFound("post not found");
+            }
+            return Ok(post);
+        }
 
         //[HttpPost]
         //public async Task<ActionResult<List<Post>>> AddPost(Post post)
