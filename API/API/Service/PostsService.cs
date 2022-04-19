@@ -25,5 +25,11 @@ namespace API.Service
             if (post == null) { return null; }
             return post;
         }
+
+        public async Task<Post> AddPost(Post post)
+        {
+            _postsRepo.AddPost(post);
+            return await GetPostById(post.Id);
+        }
     }
 }

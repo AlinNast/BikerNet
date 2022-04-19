@@ -34,14 +34,14 @@ namespace API.Controllers
             return Ok(post);
         }
 
-        //[HttpPost]
-        //public async Task<ActionResult<List<Post>>> AddPost(Post post)
-        //{
-        //    _dataContext.Posts.Add(post);
-        //    await _dataContext.SaveChangesAsync();
+        [HttpPost]
+        public async Task<ActionResult<Post>> AddPost(Post post)
+        {
+            var addedPost = await _postsService.AddPost(post);
+            
 
-        //    return Ok(await _dataContext.Posts.ToListAsync());
-        //}
+            return Ok(addedPost);
+        }
 
         //[HttpPut]
         //public async Task<ActionResult<Post>> Put(Post request)

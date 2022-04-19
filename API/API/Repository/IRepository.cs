@@ -4,6 +4,8 @@ namespace API.Repository
 {
     public interface IPostsRepository
     {
-        public Task<List<Post>> GetAll();
+        Task<List<Post>> GetAll();
+
+        void AddPost(Post post);
     }
 }

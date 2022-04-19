@@ -7,5 +7,7 @@ namespace API.Service
         Task<List<Post>> GetAllPosts();
 
         Task<Post> GetPostById(Guid id);
+
+        Task<Post> AddPost(Post post);
     }
 }
