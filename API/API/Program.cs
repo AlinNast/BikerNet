@@ -21,7 +21,7 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IPostsService, PostsService>();
-builder.Services.AddScoped<IPostsRepository, PostsRepo>();
+builder.Services.AddScoped<IPostsRepository, PostsRepository>();
 builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));

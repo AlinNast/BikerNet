@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Repository
 {
-    public class PostsRepo : IPostsRepository
+    public class PostsRepository : IPostsRepository
     {
         private readonly DataContext _dataContext;
 
-        public PostsRepo(DataContext dataContext)
+        public PostsRepository(DataContext dataContext)
         {
             _dataContext = dataContext;
         }

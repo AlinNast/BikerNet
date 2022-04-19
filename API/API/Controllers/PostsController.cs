@@ -17,6 +17,8 @@ namespace API.Controllers
             _postsService = postsService;
         }
 
+
+
         [HttpGet]
         public async Task<ActionResult<List<Post>>> GetAll()
         {
