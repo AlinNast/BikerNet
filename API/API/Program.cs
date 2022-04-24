@@ -1,5 +1,6 @@
 global using API.Data;
 global using Microsoft.EntityFrameworkCore;
+using API.Auth;
 using API.Repository;
 using API.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -34,7 +35,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 // For Identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<DataContext>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
 // For Authetincation
