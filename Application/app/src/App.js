@@ -1,5 +1,5 @@
 import HomePage from "./Components/HomePage";
-import Register from "./Components/Register";
+//import Register from "./Components/Register";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
@@ -8,7 +8,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" component={[HomePage]} />
+          <Route exact path="/" element={<HomePage/>} />
 
         </Routes>
       

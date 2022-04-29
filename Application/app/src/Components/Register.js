@@ -1,4 +1,4 @@
-import { useState, SyntheticEvent } from "react";
+import { useState } from "react";
 
 const Register = () => {
 
