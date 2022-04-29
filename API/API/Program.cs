@@ -14,13 +14,14 @@ ConfigurationManager configuration = builder.Configuration;
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: "_someStringHere",
+    options.AddPolicy(name: "AllowSetOrigins",
                       policy =>
                       {
                           policy
+                          .WithOrigins("http://localhost:3000")
                           .AllowAnyHeader()
-                          .AllowAnyMethod()
-                          .AllowAnyOrigin();
+                          .AllowCredentials()
+                          .AllowAnyMethod();
                           // http://localhost:3000/
                       });
 });
@@ -84,7 +85,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("_someStringHere");
+app.UseCors("AllowSetOrigins");
 
 app.UseAuthentication();
 app.UseAuthorization();
