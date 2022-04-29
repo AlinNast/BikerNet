@@ -35,7 +35,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 // For Identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddEntityFrameworkStores<DataContext>()
     .AddDefaultTokenProviders();
 
 // For Authetincation
