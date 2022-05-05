@@ -1,6 +1,7 @@
 global using API.Data;
 global using Microsoft.EntityFrameworkCore;
 using API.Auth;
+using API.Helpers;
 using API.Repository;
 using API.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -66,6 +67,7 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddControllers();
 builder.Services.AddScoped<IPostsService, PostsService>();
 builder.Services.AddScoped<IPostsRepository, PostsRepository>();
+builder.Services.AddScoped<JwtService, JwtService>();
 
 // For Swagger
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -1,4 +1,5 @@
 ﻿using API.Auth;
+using API.Helpers;
 using API.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -22,9 +23,9 @@ namespace API.Controllers
             RoleManager<IdentityRole> roleManager,
             IConfiguration configuration)
         {
-        _userManager = userManager;
-        _roleManager = roleManager;
-        _configuration = configuration;
+            _userManager = userManager;
+            _roleManager = roleManager;
+            _configuration = configuration;
         }
 
 
@@ -50,11 +51,22 @@ namespace API.Controllers
 
                 var token = GetToken(authClaims);
 
-                return Ok(new
-                {
-                    token = new JwtSecurityTokenHandler().WriteToken(token),
-                    expiration = token.ValidTo
+                Response.Cookies.Append("JWT", token.ToString(), new CookieOptions 
+                { 
+                    HttpOnly = true,
+                    SameSite = SameSiteMode.None,
+                    Secure = true
                 });
+
+                return Ok( new { token = new JwtSecurityTokenHandler().WriteToken(token), }
+                    //new Response
+                    //{
+                    //    Status = "Ok",
+                    //    Message = "Succes",
+                    //    //token = new JwtSecurityTokenHandler().WriteToken(token),
+                    //    //expiration = token.ValidTo
+                    //}
+                    );
             }
             return Unauthorized();
 
@@ -119,7 +131,7 @@ namespace API.Controllers
         {
             var authSingingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
 
-            var token = new JwtSecurityToken(
+           var token = new JwtSecurityToken(
                 issuer: _configuration["JWT:ValidIssuer"],
                 audience: _configuration["JWT:ValidAudience"],
                 expires: DateTime.Now.AddHours(1),
@@ -129,5 +141,7 @@ namespace API.Controllers
 
             return token;
         }
+
+        
     }
 }

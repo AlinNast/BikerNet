@@ -1,18 +1,18 @@
 import Register from "./Register";
 import Login from "./Login";
+import { Link } from "react-router-dom";
+
 
 const HomePage = () => {
     
 
     return ( 
         <>
-            <main className="register">
-                <Login>
+        <Login />
 
-                </Login>
+        <h3>Not a user yet? register <Link to="/register">Here</Link></h3>
 
-                <Register />
-            </main>
+
         </>
      );
 }

@@ -1,26 +1,38 @@
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
+
 
 const Login = () => {
 
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
+    const [redirect, setRedirect] = useState(false);
 
     const submit = async (e) => {
         e.preventDefault();
         
         const response = await fetch('https://localhost:7133/api/Authenticate/login',{
             method: "POST",
-            headers: {'Content-Type': "application/json"},
-            credentials: 'include',
+            headers: {'Content-Type': "application/json",},
+            //credentials: 'include',
             body: JSON.stringify({
                 username,
                 password
             })
-        });
+        }).then( response => response.json());
 
-        const content = await response.json();
+        const content = await response;
 
-        console.log(content);
+        window.sessionStorage.setItem("authToken", content.token)
+
+        console.log(window.sessionStorage.getItem("authToken"));
+
+        setRedirect(true);
+    }
+
+
+    if(redirect) {
+        return(<Navigate to="/feed" />)
     }
 
     return ( 

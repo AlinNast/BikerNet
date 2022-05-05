@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
+
 
 const Register = () => {
 
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const [redirect, setRedirect] = useState(false);
 
     const submit = async (e) => {
         e.preventDefault();
@@ -19,11 +22,20 @@ const Register = () => {
             })
         });
 
+        if (response.ok){
+            setRedirect(true);
+        }
         const content = await response.json();
 
         console.log(content);
+        console.log(redirect);
+        
     }
 
+
+    if(redirect){
+        return(<Navigate to="/"/>)
+    }
     return ( 
         <>
             <form onSubmit={submit}>

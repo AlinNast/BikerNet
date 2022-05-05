@@ -1,4 +1,5 @@
-﻿using API.Models;
+﻿using API.Helpers;
+using API.Models;
 using API.Repository;
 using API.Service;
 using Microsoft.AspNetCore.Authorization;
@@ -13,10 +14,13 @@ namespace API.Controllers
     public class PostsController : ControllerBase
     {
         private readonly IPostsService _postsService;
+        private readonly JwtService _jwtService;
 
-        public PostsController(IPostsService postsService)
+
+        public PostsController(IPostsService postsService, JwtService jwtService)
         {
             _postsService = postsService;
+            _jwtService = jwtService;
         }
 
 
@@ -25,6 +29,21 @@ namespace API.Controllers
         public async Task<ActionResult<List<Post>>> GetAll()
         {
             return Ok(await _postsService.GetAllPosts());
+
+            //var jwt = Request.Cookies["JWT"];
+            //var token = _jwtService.VerifyToken(jwt);
+            ////var x = token.
+            //if(token != null)
+            //{
+            //    return Ok();
+            //}
+            //else
+            //{
+            //    return Unauthorized();
+            //}
+                
+            
+            
         }
 
         [HttpGet("{id}")]
