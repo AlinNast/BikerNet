@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
+import Navbar from "./Navbar";
 
 
 const Feed = () => {
-    const [posts, setPosts] = useState();
+    const [posts, setPosts] = useState([]);
+    const [isAuthenticated, setIsAuthenticated] = useState(true);
 
     useEffect( () => {
         (
@@ -16,22 +19,43 @@ const Feed = () => {
                     },
                 
                     credentials: "include",
-                }).then( response => response.json())
+                })//.then( response => response.json())
 
-                const content = await response;
+                if(response.status == 401){
+                    setIsAuthenticated(false)
+                }
+                const content = await response.json();
+                setPosts(content);
+                console.log(content)
+                console.log(posts)
 
-                setPosts(content.posts);
-
-                console.log(content);
-                console.log(posts);
             }
         )();
-    });
 
+    }, [posts]);
 
+    if(!isAuthenticated){
+        return( <Navigate to="/"/>)
+    }
+    
     return ( 
         <>
-            <p>this is the Feed</p>
+            <Navbar/>
+            <h1>This is the Feed</h1>
+
+            <div>
+                {posts.map((post) => (
+                    <div key={post.id} className="post" style={{"background": "#ddc", "padding": "1em", "margin":"1em"}}>
+                    <br></br>
+                    <h2>{post.title}</h2>
+                    <h3>{post.description}</h3>
+                    <br></br>
+                    </div >
+
+                ))}
+            </div>
+            
+
         </>
      );
 }
