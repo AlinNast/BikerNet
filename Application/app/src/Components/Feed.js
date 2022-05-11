@@ -1,11 +1,16 @@
+
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import Navbar from "./Navbar";
+import PostsList from "./PostsList";
 
 
+
+// the feed should be a component of its own in homepage
 const Feed = () => {
     const [posts, setPosts] = useState([]);
     const [isAuthenticated, setIsAuthenticated] = useState(true);
+    const [isPending, setIsPending] = useState(true);
 
     useEffect( () => {
         (
@@ -17,18 +22,16 @@ const Feed = () => {
                         "Content-Type": "application/json",
                         'Authorization': 'Bearer ' + window.sessionStorage.getItem("authToken")
                     },
-                
                     credentials: "include",
-                })//.then( response => response.json())
+                })
 
-                if(response.status == 401){
+                if(response.status === 401){
                     setIsAuthenticated(false)
                 }
                 const content = await response.json();
                 setPosts(content);
-                console.log(content)
-                console.log(posts)
-
+                //console.log(content)
+                //console.log(posts)
             }
         )();
 
@@ -41,18 +44,10 @@ const Feed = () => {
     return ( 
         <>
             <Navbar/>
-            <h1>This is the Feed</h1>
 
+            {isPending && <p>Loading...</p>}
             <div>
-                {posts.map((post) => (
-                    <div key={post.id} className="post" style={{"background": "#ddc", "padding": "1em", "margin":"1em"}}>
-                    <br></br>
-                    <h2>{post.title}</h2>
-                    <h3>{post.description}</h3>
-                    <br></br>
-                    </div >
-
-                ))}
+                <PostsList posts={posts}/>
             </div>
             
 
@@ -61,3 +56,4 @@ const Feed = () => {
 }
  
 export default Feed;
+// hook for unauthorized that gets cought in the cath in the fect that renders different component for problems with link for home

@@ -15,6 +15,7 @@ const Navbar = () => {
     }
     return ( 
         <>
+            <p>This is the navbar</p>
             <button onClick={logout}>Logout</button>
         </>
      );

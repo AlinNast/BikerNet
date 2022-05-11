@@ -22,10 +22,9 @@ const Login = () => {
         }).then( response => response.json());
 
         const content = await response;
-
         window.sessionStorage.setItem("authToken", content.token)
 
-        console.log(window.sessionStorage.getItem("authToken"));
+        //console.log(window.sessionStorage.getItem("authToken"));
 
         setRedirect(true);
     }

@@ -9,8 +9,14 @@ function App() {
   return (
       <BrowserRouter>
         <Routes>
+        // rename to landing page
           <Route exact path="/" element={<HomePage/>} />
           <Route path="/register" element={<Register/>} />
+
+        
+          //anything else has to be Authenticated
+          //figure out how to get user from token
+          //rename feed to HomePage
           <Route path="/feed" element={<Feed/>} />
         </Routes>
       

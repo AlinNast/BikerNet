@@ -3,16 +3,16 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace API.Auth
 {
-    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
-    {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        {
+//    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+//    {
+//        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+//        {
 
-        }
+//        }
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
-        }
-    }
+//        protected override void OnModelCreating(ModelBuilder builder)
+//        {
+//            base.OnModelCreating(builder);
+//        }
+//    }
 }
