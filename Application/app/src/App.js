@@ -5,6 +5,7 @@ import Register from "./Components/Register";
 import LandingPage from "./Components/LandingPage";
 import Home from "./Components/Home";
 import Unautorized from "./Components/Unauthorized";
+import Post from "./Components/Post";
 
 
 
@@ -16,9 +17,10 @@ function App() {
           <Route path="/register" element={<Register/>} />
           <Route path="/unauthorized" element={<Unautorized />} />
 
-          //anything else has to be Authenticated
+          // Routes bellow have to be Authenticated
           //figure out how to get user from token
           <Route path="/home" element={<Home/>} />
+          <Route path="/post/:id" element={<Post></Post>} />
         </Routes>
       
       </BrowserRouter>
