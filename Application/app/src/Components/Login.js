@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 
 const Login = () => {
@@ -22,9 +23,12 @@ const Login = () => {
 
         const content = await response;
         window.sessionStorage.setItem("authToken", content.token)
+        window.sessionStorage.setItem("user", jwt_decode(window.sessionStorage.getItem("authToken"), { header: false })["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"])
 
         //console.log(window.sessionStorage.getItem("authToken"));
 
+        //const current_user = jwt_decode(window.sessionStorage.getItem("authToken"), { header: false });
+        //console.log(window.sessionStorage.getItem("user"))
         setRedirect(true);
     }
 

@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 
 const Navbar = () => {
     const[isLogout, setLogout] = useState(false);
+    const[user, setUser] = useState(window.sessionStorage.getItem("user"))
 
     const logout = () => {
         window.sessionStorage.removeItem("authToken")
@@ -15,7 +16,9 @@ const Navbar = () => {
     }
     return ( 
         <>
-            <p>This is the navbar</p>
+            <Link to="/home">Home</Link>
+
+            <p>hello {user}</p>
             <button onClick={logout}>Logout</button>
         </>
      );
