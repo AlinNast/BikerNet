@@ -10,7 +10,6 @@ const Login = () => {
 
     const submit = async (e) => {
         e.preventDefault();
-        
         const response = await fetch('https://localhost:7133/api/Authenticate/login',{
             method: "POST",
             headers: {'Content-Type': "application/json",},
@@ -31,7 +30,7 @@ const Login = () => {
 
 
     if(redirect) {
-        return(<Navigate to="/feed" />)
+        return(<Navigate to="/home" />)
     }
 
     return ( 
