@@ -6,6 +6,8 @@ import LandingPage from "./Components/LandingPage";
 import Home from "./Components/Home";
 import Unautorized from "./Components/Unauthorized";
 import Post from "./Components/Post";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.scss';
 
 
 

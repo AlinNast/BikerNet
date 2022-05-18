@@ -1,13 +1,34 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+ display: grid;
+  
+
+  background-image: url("../public/BikeBackground.png");
+  background-size: cover;
+
+  height: 100vh;
+  width: auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#login-container{
+  place-items: center center;
 }
+
+.form-control:focus{
+  z-index: 5;
+}
+
+#center-bottom{
+  color: azure;
+  background-color: rgba(139, 2, 2, 0.5);
+  padding: 1%;
+  border-radius: 20%;
+  position: absolute;
+  bottom: 1em;
+  left: 16em;
+}
+
+

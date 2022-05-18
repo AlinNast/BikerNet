@@ -1,5 +1,6 @@
 import Login from "./Login";
 import { Link } from "react-router-dom";
+import { Col, Container, Row } from "react-bootstrap";
 
 
 const LandingPage = () => {
@@ -8,9 +9,19 @@ const LandingPage = () => {
     return ( 
         <>
             <Login />
-
-            <h3>Not a user yet? register <Link to="/register">Here</Link></h3>
+            <span className="align-text-bottom">
+            <h3 className="align-baseline" id="center-bottom">Not a user yet? register <Link to="/register">Here</Link></h3> 
+            </span>
         </>
+            
+        
+        
+
+            
+
+            
+            
+        
      );
 }
  
