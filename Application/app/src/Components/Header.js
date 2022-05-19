@@ -22,7 +22,7 @@ const Header = () => {
                 
                     <Navbar.Brand >
                     {/* <img src={logo}/> */}
-                        <Nav.Link to="/home" className="homeLogo">Home</Nav.Link>{'  '}
+                        <Nav.Link href="/home" className="homeLogo">Home</Nav.Link>
                     </Navbar.Brand>
                     <Navbar.Toggle />
 
