@@ -52,3 +52,15 @@ body {
 .homeLogo{
   color: rgb(83, 125, 0) !important;
 }
+
+/* Post card */
+.post-card{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  position:relative;
+  width: 40em;
+  text-decoration: none!;
+  cursor: pointer;
+}
