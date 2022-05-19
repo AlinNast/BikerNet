@@ -28,7 +28,7 @@ const Header = () => {
 
                 <Navbar.Collapse>
                     <Nav>
-                            <Nav.Link href="/home" disabled>Link</Nav.Link>
+                            <Nav.Link href="/home" disabled>News</Nav.Link>
                         
                     </Nav>
 
