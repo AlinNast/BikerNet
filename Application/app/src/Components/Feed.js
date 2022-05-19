@@ -1,8 +1,6 @@
 
-import { useEffect, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import useFetch from "./Functions/useFetch";
-import Navbar from "./Navbar";
 import PostsList from "./PostsList";
 
 

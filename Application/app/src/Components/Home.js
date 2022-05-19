@@ -1,10 +1,10 @@
-import Navbar from "./Navbar";
 import Feed from "./Feed";
+import Header from "./Header";
 
 const Home = () => {
     return ( 
         <>
-            <Navbar/>
+            <Header/>
             <Feed/>
         </>
      );

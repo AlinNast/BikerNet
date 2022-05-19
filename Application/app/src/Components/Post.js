@@ -1,6 +1,6 @@
 import useFetch from "./Functions/useFetch";
-import Navbar from "./Navbar";
 import { Navigate, useParams } from "react-router-dom";
+import Header from "./Header";
 
 
 const Post = (props) => {
@@ -14,7 +14,7 @@ const Post = (props) => {
 
     return ( 
         <>
-            <Navbar />
+            <Header />
             {isPending && <p>Loading...</p>}
 
             {post && 

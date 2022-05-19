@@ -12,6 +12,8 @@ const Login = () => {
     const [redirect, setRedirect] = useState(false);
 
     const submit = async (e) => {
+
+        console.log("login startet");
         e.preventDefault();
         const response = await fetch('https://localhost:7133/api/Authenticate/login',{
             method: "POST",
@@ -24,13 +26,10 @@ const Login = () => {
         }).then( response => response.json());
 
         const content = await response;
+
         window.sessionStorage.setItem("authToken", content.token)
         window.sessionStorage.setItem("user", jwt_decode(window.sessionStorage.getItem("authToken"), { header: false })["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"])
 
-        //console.log(window.sessionStorage.getItem("authToken"));
-
-        //const current_user = jwt_decode(window.sessionStorage.getItem("authToken"), { header: false });
-        //console.log(window.sessionStorage.getItem("user"))
         setRedirect(true);
     }
 
@@ -52,7 +51,7 @@ const Login = () => {
                         <Form.Control type="password" size="lg" placeholder="Password" className="position-relative" required
                             onChange={ e => {setPassword(e.target.value)}}/>
                     </Form.Group>
-                    <Button variant="primary" type="submit" value={"Log in"}>Log In</Button>
+                    <Button variant="primary" type="submit" value={"Log in"} >Log In</Button>
                 </Form>
             </Container>
             {/*  */}
