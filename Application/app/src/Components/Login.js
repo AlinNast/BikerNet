@@ -43,15 +43,17 @@ const Login = () => {
             <Container id="login-container" className="d-grid h-50">
                 <Form className="text-center" onSubmit={submit}>
                     <h1>Log in to continue</h1>
-                    <Form.Group>
+                    <Form.Group id="login-field">
                         <Form.Control type="username" size="lg" placeholder="Your username" className="position-relative" required
                             onChange={ e => {setUsername(e.target.value)}} />
                     </Form.Group>
-                    <Form.Group>
+                    <Form.Group id="login-field">
                         <Form.Control type="password" size="lg" placeholder="Password" className="position-relative" required
                             onChange={ e => {setPassword(e.target.value)}}/>
                     </Form.Group>
+                    <Form.Group id="login-field">
                     <Button variant="primary" type="submit" value={"Log in"} >Log In</Button>
+                    </Form.Group>
                 </Form>
             </Container>
             {/*  */}
