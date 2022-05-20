@@ -8,6 +8,8 @@ body {
 
   background-image: url("../public/BikeBackground.png");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
   height: 100vh;
   width: auto;
@@ -29,18 +31,18 @@ body {
 
 /*  Link to register  */
 .center-bottom{
+  text-decoration: none !important;
   place-content: center;
   display: flex;
   justify-content: center;
   color: azure;
-  opacity: 0.5;
-  background-color: rgb(10, 10, 40);
+  background-color: rgb(0, 0, 40, 0.5);
   width:max-content;
   padding: 15px;
   border-radius: 10px;
   margin-left: 28rem;
   position:relative;
-  bottom: -10em;
+  bottom: -12em;
 }
 
 
@@ -53,17 +55,28 @@ body {
   color: rgb(83, 125, 0) !important;
 }
 
+.homeLogo:hover{
+  color: rgb(214, 214, 214) !important;
+}
+
 /* Post card */
 .post-card{
+  background-color: #fafafa ;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1rem;
   margin-bottom: 1rem;
   position:relative;
-  width: 40em;
+  width:40em;
   text-decoration: none!;
   cursor: pointer;
 }
+
+.post-card:hover{
+  background-color: #fafafaa7;
+  box-shadow: 5px 10px 8px #888888;
+}
+
 
 .single-post{
   margin-left: auto;
@@ -71,5 +84,10 @@ body {
   margin-top: 1rem;
   margin-bottom: 1rem;
   position:relative;
-  width: 60em;
+  width: 40em;
+}
+
+.post-picture{
+  max-width: 40em;
+  height: auto;
 }

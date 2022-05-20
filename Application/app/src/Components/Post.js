@@ -1,6 +1,6 @@
 import useFetch from "./Functions/useFetch";
 import { Navigate, useParams } from "react-router-dom";
-//import postImg from "/public/postimg.png";
+import postImg from "../Images/postimg.png";
 import Header from "./Header";
 import { Card } from "react-bootstrap";
 import { Button } from "bootstrap";
@@ -23,7 +23,7 @@ const Post = (props) => {
             {post && (
 
                     <Card className="single-post">
-                        <Card.Img variant="top" src="/public/postimg.png"/>
+                        <Card.Img variant="top" src={postImg} className="post-picture" />
                         <Card.Body>
                             <Card.Title>{post.title}</Card.Title>
                             <Card.Text>{post.description}</Card.Text>

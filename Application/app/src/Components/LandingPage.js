@@ -8,9 +8,11 @@ const LandingPage = () => {
     return ( 
         <>
             <Login />
-            <div className="center-bottom">
-            <h3 className="align-baseline" >Not a user yet? register <Link to="/register">Here</Link></h3>
+            <Link to="/register" className="center-bottom">
+            <div >
+            <h3 className="align-baseline" >Not a user yet? register here</h3>
             </div>
+            </Link>
              
             
         </>
